@@ -1,0 +1,3 @@
+-- Create your schema for the KSE workshop scenario.
+-- Use the business rules in assignment.md and the supplied data dictionary.
+-- Choose and justify your own tables, keys, references, and constraints.

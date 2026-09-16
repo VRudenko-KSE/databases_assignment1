@@ -1,0 +1,2 @@
+-- Load the six unchanged CSV files from /data using reproducible SQL and psql.
+-- Classify each required repair/rejection and preserve the clean populations.
