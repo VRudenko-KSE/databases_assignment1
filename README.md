@@ -20,6 +20,11 @@ docker compose exec -T db psql -X -U student -d assignment1 -v ON_ERROR_STOP=1 -
 
 <!-- rumdl-enable MD013 -->
 
+For network access, set `POSTGRES_BIND_ADDRESS=0.0.0.0` and `PGADMIN_BIND_ADDRESS=0.0.0.0` in `.env`,
+then run `docker compose up -d --wait` to apply the bindings. Connect to PostgreSQL at the host's IP address
+on port `55432` and open pgAdmin at `http://<host-ip>:55050` (or your configured ports).
+Change both sample passwords before exposing the services. The default `127.0.0.1` bindings keep access local.
+
 Your editable submission is `submission/`. Its files are `README.md`, `model.md`, `schema.sql`, `load.sql`,
 `queries.sql`, `verification.sql`, and `evidence/verification.txt`. Do not edit package data or runtime files.
 

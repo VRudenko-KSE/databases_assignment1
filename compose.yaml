@@ -7,7 +7,7 @@ services:
       POSTGRES_USER: student
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-assignment-1-local-password}
     ports:
-      - "127.0.0.1:${POSTGRES_PORT:-55432}:5432"
+      - "${POSTGRES_BIND_ADDRESS:-127.0.0.1}:${POSTGRES_PORT:-55432}:5432"
     volumes:
       - postgres-data:/var/lib/postgresql
       - ./runtime/00-init.sql:/docker-entrypoint-initdb.d/00-init.sql:ro
@@ -26,7 +26,7 @@ services:
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-assignment-1-pgadmin-password}
       PGADMIN_CONFIG_ALLOW_SPECIAL_EMAIL_DOMAINS: "['local']"
     ports:
-      - "127.0.0.1:${PGADMIN_PORT:-55050}:80"
+      - "${PGADMIN_BIND_ADDRESS:-127.0.0.1}:${PGADMIN_PORT:-55050}:80"
     volumes:
       - pgadmin-data:/var/lib/pgadmin
       - ./pgadmin/servers.json:/pgadmin4/servers.json:ro
