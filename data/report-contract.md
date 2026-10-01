@@ -8,7 +8,7 @@ be null. Use UTF-8 output headers, an empty field for null, ISO-8601 UTC timesta
 for utilisation. Round utilisation to six decimal places.
 
 | Report | Row grain and filter | Columns | Required order | Boundary contract |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | R1 | One qualifying session: canonical level `beginner` and `starts_at >= 2026-09-01T00:00:00Z` | `session_id,workshop_title,level,starts_at` | start, workshop title, session ID | Apply the inclusive filter and deterministic ordering. |
 | R2 | One valid registration with its participant, workshop, session, and instructor | `session_id,participant_id,participant_name,workshop_title,instructor_name` | session ID, participant ID | Rejected registrations never appear. |
 | R3 | One workshop-session combination, including an unscheduled workshop | `workshop_id,workshop_title,session_id,starts_at` | workshop ID, session ID `NULLS LAST` | Preserve the unmatched workshop with null session fields. |
